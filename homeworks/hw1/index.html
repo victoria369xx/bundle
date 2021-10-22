@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script type="module" src="./js/main.js"></script>
+    <title>Модули в JS</title>
+</head>
+
+<body>
+    <h1>Модули в Java Script</h1>
+    <div class="wrapper">
+        <div class="tab-links" id="tab-links">
+            <button class="tabBtn active" id="btnCalcDate">Калькулятор дат</button>
+            <button class="tabBtn" id="btnTimer">Таймер</button>
+        </div>
+        <div class="tabs">
+            <div class="tab tabContent" id="calcDateTab" >
+                <form id="calcDate">
+                    <label for="dateFrom">
+                        Первая дата:
+                        <input type="date" name="dateFrom">
+                    </label>
+                    <label for="dateTo">
+                        Вторая дата:
+                        <input type="date" name="dateTo">
+                    </label>
+                    <button type="submit">Рассчитать промежуток</button>
+                </form>
+                <p id="output" class="output"></p>
+            </div>
+    
+            <div class="tab tabContent" id="timerTab">
+                    <div class="inputWrapperFlex">
+                        <div class="inputWrapper">
+                            <input type="text" maxlength="2"  class="timeSet" id="minutes" > 
+                                <p>min</p>
+                        </div> <div style="font-size: 20px; font-weight: 900; align-self: center;">:</div>
+                             <div class="inputWrapper">
+                                <input type="text" maxlength="2"  class="timeSet" id="seconds"> 
+                                <p>sec</p>
+                             </div>
+                    </div>
+                
+        
+                <div class="timerControls">
+                    <button id="start">Старт</button>
+                    <button id="pause">Пауза</button>
+                    <button id="reset">Сброс</button>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html
