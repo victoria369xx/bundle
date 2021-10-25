@@ -20,7 +20,7 @@ const plugins = () => {
         }),
     ];
     if (isProd) {
-        base.push(BundleAnalyzerPlugin())
+        base.push(new BundleAnalyzerPlugin())
     }
     return base; 
 }
