@@ -4,14 +4,13 @@ const {
     CleanWebpackPlugin
 } = require('clean-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const {BundleAnalyzerPlugin} = require ('webpack-bundle-analyzer');
 
-module.exports = {
-    entry: './js/main.js',
-    output: {
-        filename: '[name].[contenthash].js',
-        path: path.resolve(__dirname, 'dist')
-    },
-    plugins: [
+const isDev = process.env.NODE_ENV === "development";
+const isProd = !isDev;
+
+const plugins = () => {
+    const base = [
         new HTMLWebpackPlugin({
             template: './index.html'
         }),
@@ -19,7 +18,20 @@ module.exports = {
         new MiniCssExtractPlugin({
             filename: '[name].[contenthash].css'
         }),
-    ],
+    ];
+    if (isProd) {
+        base.push(BundleAnalyzerPlugin())
+    }
+    return base; 
+}
+
+module.exports = {
+    entry: './js/main.js',
+    output: {
+        filename: '[name].[contenthash].js',
+        path: path.resolve(__dirname, 'dist')
+    },
+    plugins: plugins (),
     module: {
         rules: [{
                 test: /\.css$/,
