@@ -4,9 +4,8 @@
   "description": "",
   "main": "main.js",
   "scripts": {
-    "dev": "cross-env NODE_ENV=development webpack --mode development",
-    "build": "cross-env NODE_ENV=production webpack --mode production",
-    "serve": "webpack serve --mode development"
+    "dev": "npx webpack serve --mode development",
+    "build": "npx webpack --mode production"
   },
   "keywords": [],
   "author": "",

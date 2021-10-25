@@ -6,24 +6,6 @@ const {
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const {BundleAnalyzerPlugin} = require ('webpack-bundle-analyzer');
 
-const isDev = process.env.NODE_ENV === "development";
-const isProd = !isDev;
-
-const plugins = () => {
-    const base = [
-        new HTMLWebpackPlugin({
-            template: './index.html'
-        }),
-        new CleanWebpackPlugin(),
-        new MiniCssExtractPlugin({
-            filename: '[name].[contenthash].css'
-        }),
-    ];
-    if (isDev) {
-        base.push(new BundleAnalyzerPlugin())
-    }
-    return base; 
-}
 
 module.exports = {
     entry: './js/main.js',
@@ -31,7 +13,16 @@ module.exports = {
         filename: '[name].[contenthash].js',
         path: path.resolve(__dirname, 'dist')
     },
-    plugins: plugins (),
+    plugins: [
+        new HTMLWebpackPlugin({
+            template: './index.html'
+        }),
+        new CleanWebpackPlugin(),
+        new MiniCssExtractPlugin({
+            filename: '[name].[contenthash].css'
+        }),
+        new BundleAnalyzerPlugin(),
+    ],
     module: {
         rules: [{
                 test: /\.css$/,
