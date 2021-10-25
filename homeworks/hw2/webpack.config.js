@@ -19,7 +19,7 @@ const plugins = () => {
             filename: '[name].[contenthash].css'
         }),
     ];
-    if (isProd) {
+    if (isDev) {
         base.push(new BundleAnalyzerPlugin())
     }
     return base; 
