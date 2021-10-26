@@ -6,13 +6,14 @@ const {
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const {BundleAnalyzerPlugin} = require ('webpack-bundle-analyzer');
 
-
 module.exports = {
     entry: './js/main.js',
     output: {
         filename: '[name].[contenthash].js',
         path: path.resolve(__dirname, 'dist')
     },
+    mode: process.env.NODE_ENV === 'production' ? 'production' : 'development',
+    
     plugins: [
         new HTMLWebpackPlugin({
             template: './index.html'
@@ -34,5 +35,7 @@ module.exports = {
             }
         ]
     },
-
+    devServer:{
+        port: 8888
+    }
 }
