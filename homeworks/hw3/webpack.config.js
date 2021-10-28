@@ -1,8 +1,5 @@
 const path = require ('path');
-const HTMLWebpackPlugin = require('html-webpack-plugin');
-const {
-    CleanWebpackPlugin
-} = require('clean-webpack-plugin');
+const {CleanWebpackPlugin} = require('clean-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
@@ -10,22 +7,23 @@ module.exports = {
     entry : "./index.js",
     output: {
         filename: "[name].[contenthash].js",
-        path: path.resolve(__dirname, 'dist')
+        path: path.resolve(__dirname, 'dist'),
+        clean: true,
     },
     plugins: [
         new HtmlWebpackPlugin({
             template: './index.html'
         }),
         new CleanWebpackPlugin(),
-        new MiniCssExtractPlugin ({
-            filename: '[name].[contenthash].css'
-        })
+        new MiniCssExtractPlugin (),
+      
     ],
     module: {
         rules: [
             {
-                test: /\.(scss|css)$/,
+                test: /\.(scss)$/i,
                 use: [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader']
+
             },
             {
                 test: /\.(?:ico|gif|png|jpg|jpeg)$/i,
@@ -43,5 +41,10 @@ module.exports = {
                 loader: 'file-loader'
             }
         ]
+    },
+    devServer : {
+        port: 8080,
+        static: './dist',
+        hot:true
     }
 }
