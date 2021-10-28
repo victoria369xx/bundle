@@ -1,0 +1,96 @@
+/*!*************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./style.css ***!
+  \*************************************************************/
+* {
+    margin: 0;
+    padding: 0;
+}
+body {
+    margin: 0 auto;
+    max-width: 90vw;
+    margin-top: 2%;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
+}
+
+.wrapper {
+    display: flex;
+    flex-direction: column;
+}
+.tab-links {
+    margin-top: 2%;
+}
+
+.tab, .output {
+    margin-top: 2%;
+}
+.tab {
+    overflow: hidden;
+    border: 1px solid #ccc;
+    background-color: #f1f1f1;
+}
+.tabBtn {
+    background-color: inherit;
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 16px;
+    transition: 0.3s;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.tabBtn:hover {
+    background-color: #ddd;
+}
+
+.tabContent {
+    padding: 6px 12px;
+    border: 1px solid #ccc;
+    border-top: none;
+}
+
+.show {
+   border-color: #ccc;
+}
+.hide {
+    display: none;
+}
+.active {
+    background-color: #ccc;
+}
+
+.timeSet {
+    border-radius: 23%;
+    width: 5vh;
+    height: 5vh;
+    font-size: 20px;
+    text-align: center;
+
+}
+
+.timerControls {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 1%;
+    width: 150px;
+}
+.timeCounter {
+    margin-top: 2%; 
+    font-size: 20px;
+    display: flex;
+}
+
+.inputWrapperFlex {
+    display: flex;
+    justify-content: space-between;
+    width: 120px;
+    margin-left: 15px;
+
+}
+.inputWrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+}
