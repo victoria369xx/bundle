@@ -1,13 +1,12 @@
 import './style.scss'
 
-
 const imgCards = [
-    {image:`./images/forrest.jpeg`, title:'Лес'},
-    {image:`./images/lake.jpg`, title:'Озеро'},
-    {image:`./images/mountains.jpg`, title:'Горы'}
+    {image:`forrest.jpeg`, title:'Лес'},
+    {image:`lake.jpg`, title:'Озеро'},
+    {image:`mountains.jpg`, title:'Горы'}
   ];
   const renderImgCard = (img, title) => `<div class="card">
-  <img src=${img} alt="">
+  <img src='../src/assets/images/${img}' alt="фото">
   <h3>${title}</h3>
   </div>`;
 

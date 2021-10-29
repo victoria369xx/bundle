@@ -26,9 +26,10 @@ module.exports = {
 
     ],
     module: {
-        rules: [{
+        rules: [
+            {
                 test: /\.html$/,
-                use: 'html-loader'
+                loader: 'html-loader'
             },
             {
                 test: /\.(scss)$/i,
@@ -37,8 +38,8 @@ module.exports = {
             },
             {
                 test: /\.(?:ico|gif|png|jpg|jpeg)$/i,
-                type: 'asset/resource',
-
+                include: '/../src/assets/images/',
+                loader: 'url-loader',
             },
             {
                 test: /\.(?:mp3|wma|ogg|aac)$/i,
