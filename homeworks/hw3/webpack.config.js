@@ -38,8 +38,7 @@ module.exports = {
             },
             {
                 test: /\.(?:ico|gif|png|jpg|jpeg)$/i,
-                include: '/../src/assets/images/',
-                loader: 'url-loader',
+                loader: 'file-loader',
             },
             {
                 test: /\.(?:mp3|wma|ogg|aac)$/i,
