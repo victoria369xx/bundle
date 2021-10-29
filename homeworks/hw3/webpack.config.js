@@ -1,10 +1,11 @@
-const path = require ('path');
+const path = require('path');
 const {CleanWebpackPlugin} = require('clean-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = {
-    entry : "./index.js",
+    entry: "./src/index.js",
     output: {
         filename: "[name].[contenthash].js",
         path: path.resolve(__dirname, 'dist'),
@@ -12,14 +13,23 @@ module.exports = {
     },
     plugins: [
         new HtmlWebpackPlugin({
-            template: './index.html'
+            template: './src/index.html'
         }),
         new CleanWebpackPlugin(),
-        new MiniCssExtractPlugin (),
-      
+        new MiniCssExtractPlugin(),
+        new CopyWebpackPlugin({
+            patterns: [{
+                from: path.resolve(__dirname, 'src/assets/images'),
+                to: path.resolve(__dirname, 'dist', 'assets/images')
+            }]
+        })
+
     ],
     module: {
-        rules: [
+        rules: [{
+                test: /\.html$/,
+                use: 'html-loader'
+            },
             {
                 test: /\.(scss)$/i,
                 use: [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader']
@@ -28,7 +38,7 @@ module.exports = {
             {
                 test: /\.(?:ico|gif|png|jpg|jpeg)$/i,
                 type: 'asset/resource',
-                loader: 'file-loader'
+
             },
             {
                 test: /\.(?:mp3|wma|ogg|aac)$/i,
@@ -42,9 +52,9 @@ module.exports = {
             }
         ]
     },
-    devServer : {
+    devServer: {
         port: 8080,
         static: './dist',
-        hot:true
+        hot: true
     }
 }
