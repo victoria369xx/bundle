@@ -12,12 +12,11 @@ let items = [
 
 
 items.forEach((item) =>{
-    cards.insertAdjacentElement('beforeend', 
-    `<div class="card">
-  <img src='${item.src}' alt="фото">
-  <h3>${item.name}</h3>
-  </div>`
-    )
+    var newItem = document.createElement('div');
+    newItem.innerHTML = `<div class="card">
+    <img src='${item.src}'>
+    <h3>${item.name}</h3>
+    </div>`
+   cards.insertAdjacentElement('beforeend', newItem)
 });
 
-module.exports = './image.js'
