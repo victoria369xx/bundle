@@ -7,22 +7,24 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const {BundleAnalyzerPlugin} = require ('webpack-bundle-analyzer');
 
 module.exports = {
-    entry: './js/main.js',
+    entry: './src/main.js',
     output: {
         filename: '[name].[contenthash].js',
         path: path.resolve(__dirname, 'dist')
     },
-    mode: process.env.NODE_ENV === 'production' ? 'production' : 'development',
-    
+
+
     plugins: [
         new HTMLWebpackPlugin({
-            template: './index.html'
+            template: './src/index.html'
         }),
         new CleanWebpackPlugin(),
         new MiniCssExtractPlugin({
             filename: '[name].[contenthash].css'
         }),
-        new BundleAnalyzerPlugin(),
+        new BundleAnalyzerPlugin({
+            openAnalyzer: false
+        }),
     ],
     module: {
         rules: [{
@@ -31,11 +33,13 @@ module.exports = {
             },
             {
                 test: /\.wav$/,
-                loader: 'file-loader'
+                use: ['file-loader']
             }
         ]
     },
     devServer:{
-        port: 8888
+        port: 8080,
+        static: './dist',
+        hot: true
     }
 }

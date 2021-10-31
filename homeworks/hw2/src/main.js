@@ -1,7 +1,7 @@
-import '../style.css';
-import { showError } from "./output.js";
-import  calcDatesDiff  from "./calcDatesDiff.js";
-import { showResult } from "./output.js";
+import "./style.css"
+import { showError } from "./output.js"
+import  calcDatesDiff  from "./calcDatesDiff.js"
+import { showResult } from "./output.js"
 import "./timer.js"
 import "./tabSwitch.js"
 
