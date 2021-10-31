@@ -5,12 +5,14 @@ const {
 } = require('clean-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const {BundleAnalyzerPlugin} = require ('webpack-bundle-analyzer');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = {
     entry: './src/main.js',
     output: {
         filename: '[name].[contenthash].js',
-        path: path.resolve(__dirname, 'dist')
+        path: path.resolve(__dirname, 'dist'),
+        clean: true
     },
 
 
@@ -25,6 +27,12 @@ module.exports = {
         new BundleAnalyzerPlugin({
             openAnalyzer: false
         }),
+        new CopyWebpackPlugin ({
+            patterns: [{
+                from: path.resolve(__dirname, 'src'),
+                to: path.resolve(__dirname, 'dist')
+            }]
+        })
     ],
     module: {
         rules: [{
