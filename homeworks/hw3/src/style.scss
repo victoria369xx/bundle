@@ -1,0 +1,53 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+body {
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
+}
+h1 {
+    color:#8B0000; 
+    text-align: center;
+    text-transform: uppercase;
+    margin-top: 2rem;
+}
+
+.container{
+    margin: 0 auto;
+    max-width: 1400px;
+}
+.cards {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin-top: 2rem;
+}
+
+.card {
+    width: 300px;
+    height: 200px;
+    border: 1px solid #cccc;
+    box-sizing: border-box;
+    margin-bottom: 2rem;
+}
+
+.card h4 {
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.card img {
+    width: 100%;
+    height: 150px;
+}
+
+.audioCard {
+    height: 150px;
+    background-color: #cccc;
+}
+
+.audio {
+   margin-top: 20%;
+   width: 90%;
+   margin-left: 5%;
+}
