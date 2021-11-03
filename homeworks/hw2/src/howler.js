@@ -1,4 +1,4 @@
-import {HowlToExport} from './howlerSrc.js'; 
+import { Howl } from 'howler'
 
 
 export var sound = new Howl ({

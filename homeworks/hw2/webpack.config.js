@@ -4,7 +4,6 @@ const {
     CleanWebpackPlugin
 } = require('clean-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const {BundleAnalyzerPlugin} = require ('webpack-bundle-analyzer');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = {
@@ -23,9 +22,6 @@ module.exports = {
         new CleanWebpackPlugin(),
         new MiniCssExtractPlugin({
             filename: '[name].[contenthash].css'
-        }),
-        new BundleAnalyzerPlugin({
-            openAnalyzer: false
         }),
         new CopyWebpackPlugin ({
             patterns: [{

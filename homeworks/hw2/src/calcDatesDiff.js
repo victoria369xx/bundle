@@ -1,4 +1,4 @@
-import { DateTime } from "./luxonSrc";
+import { DateTime } from 'luxon'
 export default function (dateFromStr, dateToStr){
     if (dateFromStr < dateToStr){
         [dateFromStr, dateToStr] = [dateToStr, dateFromStr]
